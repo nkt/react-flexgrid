@@ -2,10 +2,10 @@ jest.dontMock('../Grid');
 
 describe('Grid', function () {
     var React = require('react/addons');
-    var Grid = require('../Grid');
     var TestUtils = React.addons.TestUtils;
+    var Grid = require('../Grid');
 
-    it('Should add container class to element', function () {
+    it('Should add "container" class to element', function () {
         var grid = TestUtils.renderIntoDocument(<Grid></Grid>);
         expect(grid.getDOMNode().className).toEqual('container');
     });
@@ -15,6 +15,11 @@ describe('Grid', function () {
         var className = grid.getDOMNode().className;
         expect(className).toContain('foo');
         expect(className).toContain('container');
+    });
+
+    it('Should add "container-fluid" class if fluid property is true', function () {
+        var grid = TestUtils.renderIntoDocument(<Grid fluid={true}></Grid>);
+        expect(grid.getDOMNode().className).toEqual('container-fluid');
     });
 
     it('Should wrap children nodes', function () {
