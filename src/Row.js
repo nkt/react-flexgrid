@@ -5,14 +5,14 @@ var Row = React.createClass({
     propTypes: {
         reverse: React.PropTypes.bool
     },
-    render: function() {
-        var className = 'row ';
+    render: function () {
+        var className = 'row';
         if (this.props.reverse) {
-            className += 'reverse ';
+            className += ' reverse';
         }
 
         if (this.props.className) {
-            this.props.className = className + this.props.className;
+            this.props.className = className + ' ' + this.props.className;
         } else {
             this.props.className = className;
         }
