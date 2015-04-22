@@ -1,5 +1,6 @@
 {
   "optional": [
     "runtime"
-  ]
+  ],
+  "ignore": [/node_modules/]
 }
