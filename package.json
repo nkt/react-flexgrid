@@ -1,6 +1,6 @@
 {
   "name": "react-flexgrid",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Flexbox grid for react apps",
   "keywords": [
     "react",
@@ -18,9 +18,6 @@
     "url": "https://github.com/nkt/react-flexgrid/issues"
   },
   "main": "src/index.js",
-  "directories": {
-    "lib": "src/"
-  },
   "dependencies": {
     "react": "^0.12.0"
   },
@@ -31,6 +28,10 @@
     "babel-eslint": "^3.0.1"
   },
   "scripts": {
+    "prepublish": [
+      "rm -rf lib",
+      "babel -d lib/ src/*.js"
+    ],
     "test": "eslint src && jest"
   },
   "jest": {

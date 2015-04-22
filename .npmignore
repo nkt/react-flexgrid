@@ -1,6 +1,4 @@
 node_modules
 .idea
-__tests__
 .travis.yml
 .gitignore
-preprocessor.js
