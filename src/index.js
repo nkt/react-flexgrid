@@ -1,5 +1,9 @@
+const Grid = require('./Grid');
+const Col = require('./Col');
+const Row = require('./Row');
+
 module.exports = {
-    Col: require('./Col'),
-    Grid: require('./Grid'),
-    Row: require('./Row')
+  Grid,
+  Col,
+  Row
 };
