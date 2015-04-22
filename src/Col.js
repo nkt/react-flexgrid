@@ -3,7 +3,6 @@ const React = require('react');
 const Col = React.createClass({
   displayName: 'Col',
   propTypes: {
-    reverse: React.PropTypes.bool,
     xs: React.PropTypes.number,
     sm: React.PropTypes.number,
     md: React.PropTypes.number,
@@ -11,7 +10,8 @@ const Col = React.createClass({
     xsOffset: React.PropTypes.number,
     smOffset: React.PropTypes.number,
     mdOffset: React.PropTypes.number,
-    lgOffset: React.PropTypes.number
+    lgOffset: React.PropTypes.number,
+    reverse: React.PropTypes.bool
   },
   _classMap: {
     xs: 'col-xs-',
@@ -25,25 +25,24 @@ const Col = React.createClass({
   },
   render() {
     let classes = [];
-    let props = this.props;
 
-    if (props.className) {
+    if (this.props.className) {
       classes.push(this.props.className);
     }
 
-    if (props.reverse) {
+    if (this.props.reverse) {
       classes.push('reverse');
     }
 
-    for (let key in props) {
-      if (props.hasOwnProperty(key) && this._classMap[key]) {
-        classes.push(this._classMap[key] + props[key]);
+    for (let key in this.props) {
+      if (this.props.hasOwnProperty(key) && this._classMap[key]) {
+        classes.push(this._classMap[key] + this.props[key]);
       }
     }
 
-    props.className = classes.join(' ');
-
-    return React.createElement('div', props, this.props.children);
+    return React.createElement('div', Object.assign(this.props, {
+      className: classes.join(' ')
+    }), this.props.children);
   }
 });
 
