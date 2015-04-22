@@ -40,7 +40,7 @@ const Col = React.createClass({
       }
     }
 
-    return React.createElement('div', Object.assign(this.props, {
+    return React.createElement('div', Object.assign({}, this.props, {
       className: classes.join(' ')
     }), this.props.children);
   }

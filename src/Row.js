@@ -15,7 +15,7 @@ const Row = React.createClass({
       className += ` ${this.props.className}`;
     }
 
-    return React.createElement('div', Object.assign(this.props, {className}), this.props.children);
+    return React.createElement('div', Object.assign({}, this.props, {className}), this.props.children);
   }
 });
 
