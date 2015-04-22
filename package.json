@@ -31,7 +31,7 @@
     "jest-cli": "^0.4.0"
   },
   "scripts": {
-    "prepublish": "babel -d lib/ src/*.js",
+    "prepublish": "babel -d lib/ src/",
     "test": "eslint src && jest"
   },
   "jest": {
