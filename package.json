@@ -46,7 +46,8 @@
       "json"
     ],
     "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react"
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/babel-runtime"
     ]
   }
 }
