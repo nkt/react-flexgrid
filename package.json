@@ -28,10 +28,7 @@
     "babel-eslint": "^3.0.1"
   },
   "scripts": {
-    "prepublish": [
-      "rm -rf lib",
-      "babel -d lib/ src/*.js"
-    ],
+    "prepublish": "babel -d lib/ src/*.js",
     "test": "eslint src && jest"
   },
   "jest": {
