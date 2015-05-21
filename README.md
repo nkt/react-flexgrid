@@ -1,7 +1,7 @@
 React Flexgrid
 ==============
 
-[![Build Status](https://travis-ci.org/nkt/react-flexgrid.svg?branch=master)](https://travis-ci.org/nkt/react-flexgrid)
+[![Circle CI](https://circleci.com/gh/nkt/react-flexgrid.svg?style=svg)](https://circleci.com/gh/nkt/react-flexgrid)
 
 Installation
 ------------
