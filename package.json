@@ -3,9 +3,13 @@
   "version": "0.5.0",
   "description": "Flexbox grid for react apps",
   "keywords": [
+    "browser",
     "react",
+    "react-component",
+    "flexbox",
     "grid",
-    "flexbox"
+    "css",
+    "flexboxgrid"
   ],
   "author": "Nikita Gusakov <dev@nkt.me>",
   "license": "MIT",
