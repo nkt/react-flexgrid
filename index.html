@@ -22,7 +22,7 @@
       <h1>
 <a id="react-flexgrid" class="anchor" href="#react-flexgrid" aria-hidden="true"><span class="octicon octicon-link"></span></a>React Flexgrid</h1>
 
-<p><a href="https://travis-ci.org/nkt/react-flexgrid"><img src="https://travis-ci.org/nkt/react-flexgrid.svg?branch=master" alt="Build Status"></a></p>
+<p><a href="https://circleci.com/gh/nkt/react-flexgrid"><img src="https://circleci.com/gh/nkt/react-flexgrid.svg?style=svg" alt="Circle CI"></a></p>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
@@ -33,10 +33,12 @@
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<div class="highlight highlight-jsx"><pre><span class="pl-k">const</span> {Grid, Row, Col} <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>react-flexgrid<span class="pl-pds">'</span></span>);
+<p>Require <code>lib/flexgrid.css</code>, or <code>less/flexgrid.less</code> into your project.</p>
 
-<span class="pl-k">const</span> App <span class="pl-k">=</span> React.createClass({
-  render() {
+<div class="highlight highlight-jsx"><pre>const {Grid, Row, Col} <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>react-flexgrid<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">const</span> <span class="pl-c1">App</span> <span class="pl-k">=</span> React.createClass({
+  <span class="pl-en">render</span>() {
     <span class="pl-k">return</span> (
       <span class="pl-k">&lt;</span>Grid<span class="pl-k">&gt;</span>
         <span class="pl-k">&lt;</span>Row<span class="pl-k">&gt;</span>
