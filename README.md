@@ -13,6 +13,8 @@ npm install react-flexgrid
 Usage
 -----
 
+Require `lib/flexgrid.css`, or `less/flexgrid.less` into your project.
+
 ```jsx
 const {Grid, Row, Col} = require('react-flexgrid');
 
