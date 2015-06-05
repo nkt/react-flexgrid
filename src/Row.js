@@ -1,21 +1,20 @@
 const React = require('react');
+const classNames = require('classnames');
 
 const Row = React.createClass({
-  displayName: 'Row',
   propTypes: {
     reverse: React.PropTypes.bool
   },
   render() {
-    let className = 'row';
-    if (this.props.reverse) {
-      className += ' reverse';
-    }
+    const className = classNames(this.props.className, 'row', {
+      reverse: this.props.reverse
+    });
 
-    if (this.props.className) {
-      className += ` ${this.props.className}`;
-    }
-
-    return React.createElement('div', Object.assign({}, this.props, {className}), this.props.children);
+    return (
+      <div {...this.props} className={className}>
+        {this.props.children}
+      </div>
+    );
   }
 });
 

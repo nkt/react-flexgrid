@@ -1,18 +1,19 @@
 const React = require('react');
+const classNames = require('classnames');
 
 const Grid = React.createClass({
-  displayName: 'Grid',
   propTypes: {
     fluid: React.PropTypes.bool
   },
   render() {
-    let className = this.props.fluid ? 'container-fluid' : 'container';
+    const containerClass = this.props.fluid ? 'container-fluid' : 'container';
+    const className = classNames(this.props.className, containerClass);
 
-    if (this.props.className) {
-      className += ` ${this.props.className}`;
-    }
-
-    return React.createElement('div', Object.assign({}, this.props, {className}), this.props.children);
+    return (
+      <div {...this.props} className={className}>
+        {this.props.children}
+      </div>
+    );
   }
 });
 

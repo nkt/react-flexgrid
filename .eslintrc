@@ -144,21 +144,46 @@
     "space-return-throw-case": 2,
     "spaced-line-comment": 2,
 
-    "react/display-name": 1,
-    "react/jsx-boolean-value": 1,
-    "react/jsx-quotes": 1,
-    "react/jsx-no-undef": 1,
+    "react/display-name": 0,
+    "react/jsx-boolean-value": 2,
+    "react/jsx-quotes": [2, "double"],
+    "react/jsx-no-undef": 2,
     "react/jsx-sort-props": 0,
     "react/jsx-sort-prop-types": 0,
-    "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1,
-    "react/no-did-mount-set-state": 1,
-    "react/no-did-update-set-state": 1,
-    "react/no-multi-comp": 1,
-    "react/no-unknown-property": 1,
-    "react/prop-types": 1,
-    "react/react-in-jsx-scope": 1,
-    "react/self-closing-comp": 1,
-    "react/wrap-multilines": 1
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/no-did-mount-set-state": [2, "allow-in-func"],
+    "react/no-did-update-set-state": 2,
+    "react/no-multi-comp": 2,
+    "react/no-unknown-property": 2,
+    "react/prop-types": [2, {
+      "ignore": [
+        "className",
+        "children"
+      ]
+    }],
+    "react/react-in-jsx-scope": 2,
+    "react/self-closing-comp": 2,
+    "react/wrap-multilines": 2,
+    "react/sort-comp": [2, {
+      "order": [
+        "displayName",
+        "mixins",
+        "statics",
+        "propTypes",
+        "getDefaultProps",
+        "getInitialState",
+        "componentWillMount",
+        "componentDidMount",
+        "componentWillReceiveProps",
+        "shouldComponentUpdate",
+        "componentWillUpdate",
+        "componentWillUnmount",
+        "/^on.+$/",
+        "/^get.+$/",
+        "/^render.+$/",
+        "render"
+      ]
+    }]
   }
 }
