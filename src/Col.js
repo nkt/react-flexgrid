@@ -1,7 +1,6 @@
 const React = require('react');
 
 const Col = React.createClass({
-  displayName: 'Col',
   propTypes: {
     xs: React.PropTypes.number,
     sm: React.PropTypes.number,

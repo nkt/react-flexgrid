@@ -1,24 +1,58 @@
 jest.dontMock('../Row');
 
+const modificatorKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'around', 'between', 'first', 'last'];
+const modificatorValues = ['xs', 'sm', 'md', 'lg'];
+
 describe('Row', function () {
   const React = require('react/addons');
-  const TestUtils = React.addons.TestUtils;
+  const {TestUtils} = React.addons;
   const Row = require('../Row');
 
   it('Should add "row" class', function () {
-    let row = TestUtils.renderIntoDocument(<Row></Row>);
+    const row = TestUtils.renderIntoDocument(<Row></Row>);
     expect(row.getDOMNode().className).toEqual('row');
   });
 
   it('Should add "reverse" class if "reverse" property is true', function () {
-    let row = TestUtils.renderIntoDocument(<Row reverse={true}></Row>);
+    const row = TestUtils.renderIntoDocument(<Row reverse={true}></Row>);
     expect(row.getDOMNode().className).toContain('reverse');
   });
 
   it('Should not replace class', function () {
-    let row = TestUtils.renderIntoDocument(<Row className="foo"></Row>);
-    let className = row.getDOMNode().className;
+    const row = TestUtils.renderIntoDocument(<Row className="foo"></Row>);
+    const className = row.getDOMNode().className;
     expect(className).toContain('foo');
     expect(className).toContain('row');
+  });
+
+  it('Should add modificators', () => {
+    const row = TestUtils.renderIntoDocument(
+      <Row
+        start="xs"
+        center="sm"
+        end="md"
+        top="lg"
+        middle="xs"
+        bottom="sm"
+        around="md"
+        between="lg"
+        first="xs"
+        last="sm"
+      >
+      </Row>
+    );
+    const className = row.getDOMNode().className;
+
+    expect(className).toContain('row');
+    expect(className).toContain('start-xs');
+    expect(className).toContain('center-sm');
+    expect(className).toContain('end-md');
+    expect(className).toContain('top-lg');
+    expect(className).toContain('middle-xs');
+    expect(className).toContain('bottom-sm');
+    expect(className).toContain('around-md');
+    expect(className).toContain('between-lg');
+    expect(className).toContain('first-xs');
+    expect(className).toContain('last-sm');
   });
 });
