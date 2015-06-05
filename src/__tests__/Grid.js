@@ -1,29 +1,24 @@
 jest.dontMock('../Grid');
 
-describe('Grid', function () {
+describe('Grid', () => {
   const React = require('react/addons');
   const TestUtils = React.addons.TestUtils;
   const Grid = require('../Grid');
 
-  it('Should add "container" class', function () {
-    let grid = TestUtils.renderIntoDocument(<Grid></Grid>);
+  it('Should add "container" class', () => {
+    const grid = TestUtils.renderIntoDocument(<Grid />);
     expect(grid.getDOMNode().className).toEqual('container');
   });
 
-  it('Should not replace class', function () {
-    let grid = TestUtils.renderIntoDocument(<Grid className="foo"></Grid>);
-    let className = grid.getDOMNode().className;
+  it('Should not replace class', () => {
+    const grid = TestUtils.renderIntoDocument(<Grid className="foo" />);
+    const className = grid.getDOMNode().className;
     expect(className).toContain('foo');
     expect(className).toContain('container');
   });
 
-  it('Should add "container-fluid" class if "fluid" property is true', function () {
-    let grid = TestUtils.renderIntoDocument(<Grid fluid={true}></Grid>);
+  it('Should add "container-fluid" class if "fluid" property is true', () => {
+    const grid = TestUtils.renderIntoDocument(<Grid fluid={true} />);
     expect(grid.getDOMNode().className).toEqual('container-fluid');
   });
-
-  it('Should wrap children nodes', function () {
-    // @todo: complete test
-    let grid = TestUtils.renderIntoDocument(<Grid><span>test</span></Grid>);
-  })
 });

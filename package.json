@@ -41,7 +41,7 @@
   },
   "scripts": {
     "pretest": "eslint src/",
-    "test": "jest",
+    "test": "jest src/",
     "prepublish": "npm run build",
     "prebuild": "rm -rf lib",
     "build": "npm run build-js && npm run build-css",

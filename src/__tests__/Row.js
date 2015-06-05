@@ -1,25 +1,22 @@
 jest.dontMock('../Row');
 
-const modificatorKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'around', 'between', 'first', 'last'];
-const modificatorValues = ['xs', 'sm', 'md', 'lg'];
-
-describe('Row', function () {
+describe('Row', () => {
   const React = require('react/addons');
   const {TestUtils} = React.addons;
   const Row = require('../Row');
 
-  it('Should add "row" class', function () {
-    const row = TestUtils.renderIntoDocument(<Row></Row>);
+  it('Should add "row" class', () => {
+    const row = TestUtils.renderIntoDocument(<Row />);
     expect(row.getDOMNode().className).toEqual('row');
   });
 
-  it('Should add "reverse" class if "reverse" property is true', function () {
-    const row = TestUtils.renderIntoDocument(<Row reverse={true}></Row>);
+  it('Should add "reverse" class if "reverse" property is true', () => {
+    const row = TestUtils.renderIntoDocument(<Row reverse={true} />);
     expect(row.getDOMNode().className).toContain('reverse');
   });
 
-  it('Should not replace class', function () {
-    const row = TestUtils.renderIntoDocument(<Row className="foo"></Row>);
+  it('Should not replace class', () => {
+    const row = TestUtils.renderIntoDocument(<Row className="foo" />);
     const className = row.getDOMNode().className;
     expect(className).toContain('foo');
     expect(className).toContain('row');
@@ -38,8 +35,7 @@ describe('Row', function () {
         between="lg"
         first="xs"
         last="sm"
-      >
-      </Row>
+      />
     );
     const className = row.getDOMNode().className;
 
