@@ -37,7 +37,8 @@
     "jest-cli": "^0.4.0",
     "less": "^2.5.1",
     "less-plugin-autoprefix": "^1.4.2",
-    "react": ">=0.12.0"
+    "react": ">=0.12.0",
+    "classnames": ">=2.1.2"
   },
   "scripts": {
     "pretest": "eslint src/",
