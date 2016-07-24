@@ -33,13 +33,17 @@ const Col = React.createClass({
       classes.push('reverse');
     }
 
+    let passingProps = {};
     for (let key in this.props) {
       if (this.props.hasOwnProperty(key) && this._classMap[key]) {
         classes.push(this._classMap[key] + this.props[key]);
       }
+      else {
+        passingProps[key] = this.props[key]
+      }
     }
 
-    return React.createElement('div', Object.assign({}, this.props, {
+    return React.createElement('div', Object.assign({}, passingProps, {
       className: classes.join(' ')
     }), this.props.children);
   }
