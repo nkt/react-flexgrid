@@ -19,31 +19,30 @@ const Row = React.createClass({
     last: ModificatorType
   },
   render() {
+    const { reverse, className, children, ...other} = this.props;
+
     const modificators = ['row'];
-    for (let i = 0; i < modificatorKeys.length; ++i) {
-      const key = modificatorKeys[i];
-      const value = this.props[key];
-      if (value) {
-        modificators.push(`${key}-${value}`);
+    let passingProps = {};
+    for (let key in other) {
+      if (modificatorKeys.indexOf(key) > -1) {
+        const value = other[key];
+        if (value) {
+          modificators.push(`${key}-${value}`);
+        }
+      } else {
+        passingProps[key] = other[key];
       }
     }
 
-    if (this.props.reverse) {
+    if (reverse) {
       modificators.push('reverse');
     }
 
-    const className = classNames(this.props.className, modificators);
-
-    let passingProps = {};
-    for (let key in this.props) {
-      if (!this.props.hasOwnProperty(key) || !this.propTypes[key]) {
-        passingProps[key] = this.props[key]
-      }
-    }
+    const _className = classNames(className, modificators);
 
     return (
-      <div {...passingProps} className={className}>
-        {this.props.children}
+      <div {...passingProps} className={_className}>
+        {children}
       </div>
     );
   }

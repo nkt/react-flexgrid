@@ -23,23 +23,26 @@ const Col = React.createClass({
     lgOffset: 'col-lg-offset-'
   },
   render() {
+    const { reverse, className, ...other} = this.props;
     let classes = [];
 
-    if (this.props.className) {
-      classes.push(this.props.className);
+    if (className) {
+      classes.push(className);
     }
 
-    if (this.props.reverse) {
+    if (reverse) {
       classes.push('reverse');
     }
 
     let passingProps = {};
-    for (let key in this.props) {
-      if (this.props.hasOwnProperty(key) && this._classMap[key]) {
-        classes.push(this._classMap[key] + this.props[key]);
-      }
-      else {
-        passingProps[key] = this.props[key]
+    for (let key in other) {
+      if (this._classMap[key]) {
+        const value = other[key];
+        if (value) {
+          classes.push(`${this._classMap[key]}${value}`);
+        }
+      } else {
+        passingProps[key] = other[key];
       }
     }
 
