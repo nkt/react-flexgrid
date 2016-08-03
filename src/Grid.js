@@ -6,18 +6,12 @@ const Grid = React.createClass({
     fluid: React.PropTypes.bool
   },
   render() {
-    const containerClass = this.props.fluid ? 'container-fluid' : 'container';
-    const className = classNames(this.props.className, containerClass);
-
-    let passingProps = {};
-    for (let key in this.props) {
-      if (!this.props.hasOwnProperty(key) || !this.propTypes[key]) {
-        passingProps[key] = this.props[key]
-      }
-    }
+    const { fluid, className, ...other} = this.props;
+    const containerClass = fluid ? 'container-fluid' : 'container';
+    const _className = classNames(className, containerClass);
 
     return (
-      <div {...passingProps} className={className}>
+      <div {...other} className={_className}>
         {this.props.children}
       </div>
     );
