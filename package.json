@@ -22,6 +22,11 @@
     "url": "https://github.com/nkt/react-flexgrid/issues"
   },
   "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src",
+    "less"
+  ],
   "peerDependencies": {
     "react": ">=0.12.0",
     "babel-runtime": ">=5.1.11",
