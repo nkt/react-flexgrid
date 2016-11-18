@@ -10,7 +10,9 @@ const Col = React.createClass({
     smOffset: React.PropTypes.number,
     mdOffset: React.PropTypes.number,
     lgOffset: React.PropTypes.number,
-    reverse: React.PropTypes.bool
+    reverse: React.PropTypes.bool,
+    first: React.PropTypes.string,
+    last: React.PropTypes.string
   },
   _classMap: {
     xs: 'col-xs-',
@@ -20,7 +22,9 @@ const Col = React.createClass({
     xsOffset: 'col-xs-offset-',
     smOffset: 'col-sm-offset-',
     mdOffset: 'col-md-offset-',
-    lgOffset: 'col-lg-offset-'
+    lgOffset: 'col-lg-offset-',
+    first: 'first-',
+    last: 'last-'
   },
   render() {
     const { reverse, className, ...other} = this.props;

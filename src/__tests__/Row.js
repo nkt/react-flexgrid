@@ -34,8 +34,6 @@ describe('Row', () => {
         bottom="sm"
         around="md"
         between="lg"
-        first="xs"
-        last="sm"
       />
     );
     const className = ReactDOM.findDOMNode(row).className;
@@ -49,7 +47,5 @@ describe('Row', () => {
     expect(className).toContain('bottom-sm');
     expect(className).toContain('around-md');
     expect(className).toContain('between-lg');
-    expect(className).toContain('first-xs');
-    expect(className).toContain('last-sm');
   });
 });

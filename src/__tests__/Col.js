@@ -7,12 +7,14 @@ describe('Col', () => {
   const Col = require('../Col');
 
   it('Should add classes equals to props', () => {
-    const col = TestUtils.renderIntoDocument(<Col xs={12} sm={8} md={6} lg={4} />);
+    const col = TestUtils.renderIntoDocument(<Col xs={12} sm={8} md={6} lg={4} first="xs" last="lg"/>);
     const className = ReactDOM.findDOMNode(col).className;
     expect(className).toContain('col-xs-12');
     expect(className).toContain('col-sm-8');
     expect(className).toContain('col-md-6');
     expect(className).toContain('col-lg-4');
+    expect(className).toContain('first-xs');
+    expect(className).toContain('last-lg');
   });
 
   it('Should add "reverse" class if "reverse" property is true', () => {
