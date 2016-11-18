@@ -14,7 +14,7 @@ const Row = React.createClass({
     middle: ModificatorType,
     bottom: ModificatorType,
     around: ModificatorType,
-    between: ModificatorType,
+    between: ModificatorType
   },
   render() {
     const { reverse, className, children, ...other} = this.props;
