@@ -2,7 +2,7 @@ const React = require('react');
 const classNames = require('classnames');
 
 const ModificatorType = React.PropTypes.oneOf(['xs', 'sm', 'md', 'lg']);
-const modificatorKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'around', 'between', 'first', 'last'];
+const modificatorKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'around', 'between'];
 
 const Row = React.createClass({
   propTypes: {
@@ -14,9 +14,7 @@ const Row = React.createClass({
     middle: ModificatorType,
     bottom: ModificatorType,
     around: ModificatorType,
-    between: ModificatorType,
-    first: ModificatorType,
-    last: ModificatorType
+    between: ModificatorType
   },
   render() {
     const { reverse, className, children, ...other} = this.props;
