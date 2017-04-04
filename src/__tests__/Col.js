@@ -28,4 +28,12 @@ describe('Col', () => {
     expect(className).toContain('foo');
     expect(className).toContain('col-md-3');
   });
+
+  it('Should allow zero offset', () => {
+    const col = TestUtils.renderIntoDocument(<Col xs={11} sm={8} md={6} lg={4} xsOffset={1} smOffset={0}/>);
+    const className = ReactDOM.findDOMNode(col).className;
+    expect(className).toContain('col-xs-11');
+    expect(className).toContain('col-sm-offset-0');
+    expect(className).toContain('col-xs-offset-1');
+  });
 });
