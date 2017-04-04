@@ -1,5 +1,18 @@
 const React = require('react');
 
+const classMap = {
+  xs: 'col-xs-',
+  sm: 'col-sm-',
+  md: 'col-md-',
+  lg: 'col-lg-',
+  xsOffset: 'col-xs-offset-',
+  smOffset: 'col-sm-offset-',
+  mdOffset: 'col-md-offset-',
+  lgOffset: 'col-lg-offset-',
+  first: 'first-',
+  last: 'last-'
+};
+
 const Col = React.createClass({
   propTypes: {
     xs: React.PropTypes.number,
@@ -13,18 +26,6 @@ const Col = React.createClass({
     reverse: React.PropTypes.bool,
     first: React.PropTypes.string,
     last: React.PropTypes.string
-  },
-  _classMap: {
-    xs: 'col-xs-',
-    sm: 'col-sm-',
-    md: 'col-md-',
-    lg: 'col-lg-',
-    xsOffset: 'col-xs-offset-',
-    smOffset: 'col-sm-offset-',
-    mdOffset: 'col-md-offset-',
-    lgOffset: 'col-lg-offset-',
-    first: 'first-',
-    last: 'last-'
   },
   render() {
     const { reverse, className, ...other} = this.props;
@@ -40,10 +41,10 @@ const Col = React.createClass({
 
     let passingProps = {};
     for (let key in other) {
-      if (this._classMap[key]) {
+      if (classMap[key]) {
         const value = other[key];
-        if (value) {
-          classes.push(`${this._classMap[key]}${value}`);
+        if (typeof value !== 'undefined') {
+          classes.push(`${classMap[key]}${value}`);
         }
       } else {
         passingProps[key] = other[key];
