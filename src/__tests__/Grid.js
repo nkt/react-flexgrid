@@ -3,7 +3,7 @@ jest.dontMock('../Grid');
 describe('Grid', () => {
   const React = require('react');
   const ReactDOM = require('react-dom');
-  const TestUtils = require('react/lib/ReactTestUtils');
+  const TestUtils = require('react-dom/lib/ReactTestUtils');
   const Grid = require('../Grid');
 
   it('Should add "container" class', () => {

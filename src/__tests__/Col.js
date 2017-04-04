@@ -3,7 +3,7 @@ jest.dontMock('../Col');
 describe('Col', () => {
   const React = require('react');
   const ReactDOM = require('react-dom');
-  const TestUtils = require('react/lib/ReactTestUtils');
+  const TestUtils = require('react-dom/lib/ReactTestUtils');
   const Col = require('../Col');
 
   it('Should add classes equals to props', () => {
