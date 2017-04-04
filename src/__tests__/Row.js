@@ -3,7 +3,7 @@ jest.dontMock('../Row');
 describe('Row', () => {
   const React = require('react');
   const ReactDOM = require('react-dom');
-  const TestUtils = require('react/lib/ReactTestUtils');
+  const TestUtils = require('react-dom/lib/ReactTestUtils');
   const Row = require('../Row');
 
   it('Should add "row" class', () => {
