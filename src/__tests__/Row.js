@@ -1,30 +1,30 @@
-jest.dontMock('../Row');
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import { Row } from '../';
 
 describe('Row', () => {
-  const React = require('react');
-  const ReactDOM = require('react-dom');
-  const TestUtils = require('react-dom/lib/ReactTestUtils');
-  const Row = require('../Row');
-
   it('Should add "row" class', () => {
-    const row = TestUtils.renderIntoDocument(<Row />);
-    expect(ReactDOM.findDOMNode(row).className).toEqual('row');
+    const enzymeWrapper = shallow(<Row />);
+
+    expect(enzymeWrapper.hasClass('row')).toBeTruthy();
   });
 
   it('Should add "reverse" class if "reverse" property is true', () => {
-    const row = TestUtils.renderIntoDocument(<Row reverse={true} />);
-    expect(ReactDOM.findDOMNode(row).className).toContain('reverse');
+    const enzymeWrapper = shallow(<Row reverse />);
+
+    expect(enzymeWrapper.hasClass('reverse')).toBeTruthy();
   });
 
   it('Should not replace class', () => {
-    const row = TestUtils.renderIntoDocument(<Row className="foo" />);
-    const className = ReactDOM.findDOMNode(row).className;
-    expect(className).toContain('foo');
-    expect(className).toContain('row');
+    const enzymeWrapper = shallow(<Row className="foo" />);
+
+    expect(enzymeWrapper.hasClass('foo')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('row')).toBeTruthy();
   });
 
   it('Should add modificators', () => {
-    const row = TestUtils.renderIntoDocument(
+    const enzymeWrapper = shallow(
       <Row
         start="xs"
         center="sm"
@@ -34,18 +34,16 @@ describe('Row', () => {
         bottom="sm"
         around="md"
         between="lg"
-      />
-    );
-    const className = ReactDOM.findDOMNode(row).className;
+      />);
 
-    expect(className).toContain('row');
-    expect(className).toContain('start-xs');
-    expect(className).toContain('center-sm');
-    expect(className).toContain('end-md');
-    expect(className).toContain('top-lg');
-    expect(className).toContain('middle-xs');
-    expect(className).toContain('bottom-sm');
-    expect(className).toContain('around-md');
-    expect(className).toContain('between-lg');
+    expect(enzymeWrapper.hasClass('row')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('start-xs')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('center-sm')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('end-md')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('top-lg')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('middle-xs')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('bottom-sm')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('around-md')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('between-lg')).toBeTruthy();
   });
 });

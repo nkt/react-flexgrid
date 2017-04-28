@@ -1,25 +1,25 @@
-jest.dontMock('../Grid');
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import { Grid } from '../';
 
 describe('Grid', () => {
-  const React = require('react');
-  const ReactDOM = require('react-dom');
-  const TestUtils = require('react-dom/lib/ReactTestUtils');
-  const Grid = require('../Grid');
-
   it('Should add "container" class', () => {
-    const grid = TestUtils.renderIntoDocument(<Grid />);
-    expect(ReactDOM.findDOMNode(grid).className).toEqual('container');
+    const enzymeWrapper = shallow(<Grid />);
+
+    expect(enzymeWrapper.hasClass('container')).toBeTruthy();
   });
 
   it('Should not replace class', () => {
-    const grid = TestUtils.renderIntoDocument(<Grid className="foo" />);
-    const className = ReactDOM.findDOMNode(grid).className;
-    expect(className).toContain('foo');
-    expect(className).toContain('container');
+    const enzymeWrapper = shallow(<Grid className="foo" />);
+
+    expect(enzymeWrapper.hasClass('foo')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('container')).toBeTruthy();
   });
 
   it('Should add "container-fluid" class if "fluid" property is true', () => {
-    const grid = TestUtils.renderIntoDocument(<Grid fluid />);
-    expect(ReactDOM.findDOMNode(grid).className).toEqual('container-fluid');
+    const enzymeWrapper = shallow(<Grid fluid />);
+
+    expect(enzymeWrapper.hasClass('container-fluid')).toBeTruthy();
   });
 });

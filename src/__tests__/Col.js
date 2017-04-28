@@ -1,39 +1,38 @@
-jest.dontMock('../Col');
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import { Col } from '../';
 
 describe('Col', () => {
-  const React = require('react');
-  const ReactDOM = require('react-dom');
-  const TestUtils = require('react-dom/lib/ReactTestUtils');
-  const Col = require('../Col');
-
   it('Should add classes equals to props', () => {
-    const col = TestUtils.renderIntoDocument(<Col xs={12} sm={8} md={6} lg={4} first="xs" last="lg"/>);
-    const className = ReactDOM.findDOMNode(col).className;
-    expect(className).toContain('col-xs-12');
-    expect(className).toContain('col-sm-8');
-    expect(className).toContain('col-md-6');
-    expect(className).toContain('col-lg-4');
-    expect(className).toContain('first-xs');
-    expect(className).toContain('last-lg');
+    const enzymeWrapper = shallow(<Col xs={12} sm={8} md={6} lg={4} first="xs" last="lg" />);
+
+    expect(enzymeWrapper.hasClass('col-xs-12')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('col-sm-8')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('col-md-6')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('col-lg-4')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('first-xs')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('last-lg')).toBeTruthy();
   });
 
   it('Should add "reverse" class if "reverse" property is true', () => {
-    const col = TestUtils.renderIntoDocument(<Col reverse={true} />);
-    expect(ReactDOM.findDOMNode(col).className).toContain('reverse');
+    const enzymeWrapper = shallow(<Col reverse />);
+
+    expect(enzymeWrapper.hasClass('reverse')).toBeTruthy();
   });
 
   it('Should not replace class', () => {
-    const col = TestUtils.renderIntoDocument(<Col className="foo" md={3} />);
-    const className = ReactDOM.findDOMNode(col).className;
-    expect(className).toContain('foo');
-    expect(className).toContain('col-md-3');
+    const enzymeWrapper = shallow(<Col className="foo" md={3} />);
+
+    expect(enzymeWrapper.hasClass('foo')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('col-md-3')).toBeTruthy();
   });
 
   it('Should allow zero offset', () => {
-    const col = TestUtils.renderIntoDocument(<Col xs={11} sm={8} md={6} lg={4} xsOffset={1} smOffset={0}/>);
-    const className = ReactDOM.findDOMNode(col).className;
-    expect(className).toContain('col-xs-11');
-    expect(className).toContain('col-sm-offset-0');
-    expect(className).toContain('col-xs-offset-1');
+    const enzymeWrapper = shallow(<Col xs={11} sm={8} md={6} lg={4} xsOffset={1} smOffset={0} />);
+
+    expect(enzymeWrapper.hasClass('col-xs-11')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('col-sm-offset-0')).toBeTruthy();
+    expect(enzymeWrapper.hasClass('col-xs-offset-1')).toBeTruthy();
   });
 });
