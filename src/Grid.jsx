@@ -4,10 +4,10 @@ import classNames from 'classnames';
 
 const Grid = ({ children, fluid, className, ...other }) => {
   const containerClass = fluid ? 'container-fluid' : 'container';
-  const _className = classNames(className, containerClass);
+  const classes = classNames(className, containerClass);
 
   return (
-    <div {...other} className={_className}>
+    <div {...other} className={classes}>
       {children}
     </div>
   );
@@ -16,7 +16,7 @@ const Grid = ({ children, fluid, className, ...other }) => {
 Grid.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  fluid: PropTypes.bool
+  fluid: PropTypes.bool,
 };
 
 export default Grid;

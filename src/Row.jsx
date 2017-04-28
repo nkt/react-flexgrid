@@ -7,7 +7,7 @@ const modificatorKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'a
 const Row = ({ reverse, className, children, ...other }) => {
   const modificators = ['row'];
   const passingProps = {};
-  Object.keys(other).forEach(key => {
+  Object.keys(other).forEach((key) => {
     if (modificatorKeys.includes(key)) {
       const value = other[key];
       if (value) {
@@ -22,10 +22,10 @@ const Row = ({ reverse, className, children, ...other }) => {
     modificators.push('reverse');
   }
 
-  const _className = classNames(className, modificators);
+  const classes = classNames(className, modificators);
 
   return (
-    <div {...passingProps} className={_className}>
+    <div {...passingProps} className={classes}>
       {children}
     </div>
   );
@@ -44,7 +44,7 @@ Row.propTypes = {
   middle: ModificatorType,
   bottom: ModificatorType,
   around: ModificatorType,
-  between: ModificatorType
+  between: ModificatorType,
 };
 
 export default Row;

@@ -23,9 +23,9 @@
   },
   "main": "lib/index.js",
   "peerDependencies": {
-    "react": ">=0.14.0",
     "classnames": ">=2.1.2",
-    "prop-types": "^15.5.8"
+    "prop-types": "^15.5.8",
+    "react": ">=0.14.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

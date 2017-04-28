@@ -11,7 +11,7 @@ const classMap = {
   mdOffset: 'col-md-offset-',
   lgOffset: 'col-lg-offset-',
   first: 'first-',
-  last: 'last-'
+  last: 'last-',
 };
 
 const Col = ({ children, reverse, className, ...other }) => {
@@ -26,7 +26,7 @@ const Col = ({ children, reverse, className, ...other }) => {
   }
 
   const passingProps = {};
-  Object.keys(other).forEach(key => {
+  Object.keys(other).forEach((key) => {
     if (classMap[key]) {
       const value = other[key];
       if (typeof value !== 'undefined') {
@@ -38,7 +38,7 @@ const Col = ({ children, reverse, className, ...other }) => {
   });
 
   return createElement('div', Object.assign({}, passingProps, {
-    className: classes.join(' ')
+    className: classes.join(' '),
   }), children);
 };
 
@@ -55,7 +55,7 @@ Col.propTypes = {
   lgOffset: PropTypes.number,
   reverse: PropTypes.bool,
   first: PropTypes.string,
-  last: PropTypes.string
+  last: PropTypes.string,
 };
 
 export default Col;
