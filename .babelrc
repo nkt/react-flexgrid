@@ -1,6 +1,10 @@
 {
-  "loose": true,
-  "optional": [
-    "runtime"
+  "presets": [
+    "es2015",
+    "react"
+  ],
+  "plugins": [
+    "transform-export-extensions",
+    "transform-object-rest-spread"
   ]
 }

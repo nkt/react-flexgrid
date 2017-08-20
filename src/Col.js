@@ -1,4 +1,5 @@
-const React = require('react');
+import React, { createElement } from 'react';
+import PropTypes from 'prop-types';
 
 const classMap = {
   xs: 'col-xs-',
@@ -10,51 +11,51 @@ const classMap = {
   mdOffset: 'col-md-offset-',
   lgOffset: 'col-lg-offset-',
   first: 'first-',
-  last: 'last-'
+  last: 'last-',
 };
 
-const Col = React.createClass({
-  propTypes: {
-    xs: React.PropTypes.number,
-    sm: React.PropTypes.number,
-    md: React.PropTypes.number,
-    lg: React.PropTypes.number,
-    xsOffset: React.PropTypes.number,
-    smOffset: React.PropTypes.number,
-    mdOffset: React.PropTypes.number,
-    lgOffset: React.PropTypes.number,
-    reverse: React.PropTypes.bool,
-    first: React.PropTypes.string,
-    last: React.PropTypes.string
-  },
-  render() {
-    const { reverse, className, ...other} = this.props;
-    let classes = [];
+const Col = ({ children, reverse, className, ...other }) => {
+  const classes = [];
 
-    if (className) {
-      classes.push(className);
-    }
-
-    if (reverse) {
-      classes.push('reverse');
-    }
-
-    let passingProps = {};
-    for (let key in other) {
-      if (classMap[key]) {
-        const value = other[key];
-        if (typeof value !== 'undefined') {
-          classes.push(`${classMap[key]}${value}`);
-        }
-      } else {
-        passingProps[key] = other[key];
-      }
-    }
-
-    return React.createElement('div', Object.assign({}, passingProps, {
-      className: classes.join(' ')
-    }), this.props.children);
+  if (className) {
+    classes.push(className);
   }
-});
 
-module.exports = Col;
+  if (reverse) {
+    classes.push('reverse');
+  }
+
+  const passingProps = {};
+  Object.keys(other).forEach((key) => {
+    if (classMap[key]) {
+      const value = other[key];
+      if (typeof value !== 'undefined') {
+        classes.push(`${classMap[key]}${value}`);
+      }
+    } else {
+      passingProps[key] = other[key];
+    }
+  });
+
+  return createElement('div', Object.assign({}, passingProps, {
+    className: classes.join(' '),
+  }), children);
+};
+
+Col.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  xs: PropTypes.number,
+  sm: PropTypes.number,
+  md: PropTypes.number,
+  lg: PropTypes.number,
+  xsOffset: PropTypes.number,
+  smOffset: PropTypes.number,
+  mdOffset: PropTypes.number,
+  lgOffset: PropTypes.number,
+  reverse: PropTypes.bool,
+  first: PropTypes.string,
+  last: PropTypes.string,
+};
+
+export default Col;
