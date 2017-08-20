@@ -1,36 +1,34 @@
 React Flexgrid
 ==============
 
-[![Circle CI](https://circleci.com/gh/nkt/react-flexgrid.svg?style=svg)](https://circleci.com/gh/nkt/react-flexgrid)
+[![Circle CI](https://circleci.com/gh/nkt/react-flexgrid.svg?style=shield)](https://circleci.com/gh/nkt/react-flexgrid)
 
 Installation
 ------------
 
 ```
-npm install react-flexgrid
+npm install --save react-flexgrid
 ```
 
 Usage
 -----
 
-Require `lib/flexgrid.css`, or `less/flexgrid.less` into your project.
+Import `react-flexgrid/lib/flexgrid.css`, or `react-flexgrid/less/flexgrid.less` into your project.
 
-```jsx
-const {Grid, Row, Col} = require('react-flexgrid');
+```js
+import { Grid, Row, Col } = from 'react-flexgrid';
 
-const App = React.createClass({
-  render() {
-    return (
-      <Grid>
-        <Row>
-          <Col xs={6} md={3}>Hello, world!</Col>
-        </Row>
-      </Grid>
-    );
-  }
-});
+function App() {
+  return (
+    <Grid>
+      <Row>
+        <Col xs={6} md={3}>Hello, world!</Col>
+      </Row>
+    </Grid>
+  );
+}
 ```
 
 License
 -------
-MIT
+[MIT](LICENSE)
